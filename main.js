@@ -1,6 +1,7 @@
 // Variables
 var filter = 0;
 let id_peliculas = 0;
+const DOMitems = document.querySelector('#items');
 let num_pelis = 0
 const peliculas = [
     {
@@ -86,14 +87,10 @@ const peliculas = [
 
 ];
 
-const DOMitems = document.querySelector('#items');
 
-/**
- * Dibuja todos los productos a partir de la base de datos. No confundir con el carrito
- */
- 
+// Pintamos los elementos del JSON
  function renderizarProductos(filter) {
-    
+    // Recorremos el JSON
     peliculas.forEach((info) => {
         
         if((filter == info.genero)|| filter == "all"){
@@ -124,11 +121,10 @@ const DOMitems = document.querySelector('#items');
             const miNodoDuracion = document.createElement('p');
             miNodoDuracion.classList.add('card-text');
             miNodoDuracion.textContent = info.duracion + ' min';
-            // Boton 
+            // Año 
             const miNodoYear = document.createElement('p');
             miNodoYear.classList.add('card-text');
             miNodoYear.textContent = "(" + info.year + ")";
-            // miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
             // Insertamos
             miNodoCardBody.appendChild(miNodoImagen);
             miNodoCardBody.appendChild(miNodoTitle);
@@ -139,13 +135,17 @@ const DOMitems = document.querySelector('#items');
         }
         
     });
+    // Recorremos el JSON para sacar el número total de elementos
     peliculas.forEach((vector) => {id_peliculas= vector.id});
+
+    // Pintamos el número de elementos seleccionados y el total
     document.getElementById("pelis_filtradas").innerHTML= num_pelis + " de " + id_peliculas;
 }
 renderizarProductos("all");
 
-// Inicio
+// FUnción para filtrar elementos
 function filter_check(){
+    // Renicializamos la variable de películas mostradas
     num_pelis = 0
     DOMitems.innerHTML = '';
     if(document.querySelector('#accion').checked){
@@ -160,15 +160,10 @@ function filter_check(){
     if(document.querySelector('#terror').checked){
         renderizarProductos("terror");
     }
-    // else {
-    //     renderizarProductos("all");
-
-    // }
 }
 
 // Al añadir película, la imagen no va a ser la que se suba para no meter nada de back en la práctica
 function add_pelicula(){
-    
     
     peliculas.forEach((vector) => {id_peliculas= vector.id});
     peliculas.push({
