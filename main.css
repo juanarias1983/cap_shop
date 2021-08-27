@@ -1,1 +1,30 @@
- 
+ header.ob {
+     margin-bottom: 3em;
+ }
+ .section_1 {
+     margin-bottom: 3em;
+ }
+ .section_2 {
+     margin-bottom: 3em;
+ }
+ .section_2 .row {
+     margin-bottom: 2em;
+ }
+ #items{
+    max-width: 710px;
+}
+
+ .section_2 .card {
+     margin-bottom: 1em;
+     flex-direction: row;
+     width: 200px;
+     height: 335px;
+     
+ }
+ .section_2 .card-body {
+     text-align: center;
+ }
+ .section_2 .card-title {
+    margin-top: 1rem;
+}
+

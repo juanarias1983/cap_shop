@@ -6,11 +6,22 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"></head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  </head>
 <body>
+  <header class="navbar navbar-expand-lg shadow ob">
     <div class="container">
-        <div class="row justify-content-md-center">
+      <div class="row">
+        <div class="col-12">
+          <a href="#" target="_blank">
+            <img style="margin-left: 0px" src="https://ximg.es/100x50/fff/000" alt="Logo" width="100" height="50">
+          </a>
+        </div>
+      </div> 
+    </div>
+  </header>
+  <section class="container section_1">
+        <!-- <div class="row justify-content-md-center">
           <div class="col col-lg-2"> 
             1 of 3
           </div>
@@ -20,65 +31,119 @@
           <div class="col col-lg-2">
             3 of 3
           </div>
+        </div> -->
+        <div class="row">
+          <div class="col-12">
+            <h1>Bienvenido a tu videoclub</h1>
+            <p>Crea, actualiza y filtra tus películas</p>
+          </div>          
+        </div>
+      </section>
+      <section class="container section_2">
+        <div class="row">
+          <div class="col">
+            <p id="pelis_filtradas">10 de 10</p>
+          </div>
         </div>
         <div class="row">
-            <!-- posible módulo de tarjeta -->
-          <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
+          <div class="col-8"">
+            <div class="container">
+              <div class="row justify-content-between" id="items"></div>
+            </div>
           </div>
           <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-          </div>
-          <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-          </div>
-          <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-          </div>
-          
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <h4>Filtros</h4>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="cf">
+                    <label class="form-check-label" for="cf">
+                      Ciencia Ficción
+                    </label>
                   </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="accion">
+                    <label class="form-check-label" for="accion">
+                      Acción
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="comedia" >
+                    <label class="form-check-label" for="comedia">
+                      Comedia
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="terror" >
+                    <label class="form-check-label" for="terror">
+                      Terror
+                    </label>
+                  </div>
+                  <button type="button" class="btn btn-primary mt-3" id="filtrar" onclick="filter_check()">Filtrar</button>
+                </div>
               </div>
+              <div class="col">
+                <h4>Añadir otra película</h4>
+                <button type="button" class="btn btn-primary mt-3" id="btn_modal" data-bs-toggle="modal" data-bs-target="#addModal">Añadir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>  
+
+
+
+
+
+    <!-- MODALES -->
+    <!-- Modal -->
+  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addModalLabel">Añadir película</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="pelicula_titulo" class="form-label">Título</label>
+            <input type="email" class="form-control" id="pelicula_titulo" placeholder="Título">
+          </div>
+          <div class="mb-3">
+            <label for="pelicula_img" class="form-label">Imagen</label>
+            <input class="form-control" type="file" id="pelicula_img">
+          </div>
+          <div class="mb-3">
+            <label for="pelicula_duracion" class="form-label">Duración</label>
+            <input type="email" class="form-control" id="pelicula_duracion" placeholder="Duración">
+          </div>
+          <div class="mb-3">
+            <label for="pelicula_year" class="form-label">Año</label>
+            <input type="email" class="form-control" id="pelicula_year" placeholder="Año">
+          </div>
+          <div class="mb-3">
+            <label for="pelicula_genero" class="form-label">Género</label>
+            <select class="form-select form-select mb-3" aria-label=".form-select-lg example" id="pelicula_genero">
+              <option selected>Selecciona el género</option>
+              <option value="cf">Ciencia Ficción</option>
+              <option value="accion">Acción</option>
+              <option value="comedia">Comedia</option>
+              <option value="terror">Terror</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="add_pelicula()" data-bs-dismiss="modal">Save changes</button>
         </div>
       </div>
-      
+    </div>
+  </div>
 </body>
+
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script></html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+<script src='main.js'></script>
+
+</html>
