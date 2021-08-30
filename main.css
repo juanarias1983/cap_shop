@@ -4,8 +4,22 @@
  .section_1 {
      margin-bottom: 3em;
  }
+ .section_1 h1 {
+     border-bottom: 1px solid red;
+ }
  .section_2 {
      margin-bottom: 3em;
+ }
+ .section_2 .filtros {
+    background: #eeeeee;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+ }
+ .section_2 button.btn-primary {
+    background-color:#d7192d;
+    border-color: #d7192d;
+    outline: none;
  }
  .section_2 .row {
      margin-bottom: 2em;
