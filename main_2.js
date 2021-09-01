@@ -190,6 +190,9 @@ function link_paginas(num) {
     // Utilizando la variable num podremos acceder a la id de la página para hacerla visible e invisivilizar al resto
     // con el selector child o con un bucle contando los divs que hay dentro de Items.
     console.log("El parámetro es el: " + num);
+    ca = document.getElementById("pagina").childElementCount;
+    console.log(DOMpaginas.childElementCount);
+    console.log("prueba " + ca);
 }
 
 // FUnción para filtrar elementos
