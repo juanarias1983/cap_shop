@@ -2,7 +2,12 @@
 var filter = 0;
 let id_peliculas = 0;
 const DOMitems = document.querySelector('#items');
-let num_pelis = 0
+const DOMpaginas = document.querySelector('#pagina');
+const DOMpag = document.querySelector('.pagination');
+let num_pag = 1;
+let num_pelis = 0;
+let pag_list = 7;
+let items_num = 2;
 const peliculas = [
     {
         id: 1,
@@ -86,22 +91,26 @@ const peliculas = [
     }
 
 ];
-
+var jsonString = [];
 
 // Pintamos los elementos del JSON
  function renderizarProductos(filter) {
     // Recorremos el JSON
     peliculas.forEach((info) => {
 
-        var obj = new Object();
-            obj.name = "Raj";
-            obj.age  = 32;
-            obj.married = false;
-            var jsonString= JSON.stringify(obj);
+        // var obj = new Object();
+        //     obj.id = info.id;
+        //     obj.nombre  = info.nombre;
+        //     obj.duracion  = info.duracion;
+        //     obj.imagen  = "./img/fff.jpg";
+        //     obj.genero = info.genero;
+        //     obj.year = info.year;
+        //     jsonString += JSON.stringify(obj);
         
         if((filter == info.genero)|| filter == "all"){
-            
+            console.log(num_pelis);
             num_pelis += 1;
+
             // Estructura
             const miNodo = document.createElement('div');
             miNodo.classList.add('card', 'col-4', 'col-xs-12');
@@ -137,7 +146,32 @@ const peliculas = [
             miNodoCardBody.appendChild(miNodoDuracion);
             miNodoCardBody.appendChild(miNodoYear);
             miNodo.appendChild(miNodoCardBody);
-            DOMitems.appendChild(miNodo);
+            if(num_pelis == pag_list) {
+                num_pag += 1;
+                g = document.createElement('div');
+                g.setAttribute("id", "items"+items_num);
+                g.setAttribute("class","row justify-content-between items d-none")
+                DOMpaginas.appendChild(g);    
+                pag_list += 7;
+                items_num += 1;
+                pag = document.createElement('li');
+                pag.setAttribute("class", "page-item");
+                pag_link = document.createElement('a');
+                pag_link.setAttribute("class", "page-link num_pag_"+num_pag);
+                pag_link.setAttribute("href", "#");
+                pag_link.setAttribute("onclick", "link_paginas(" + num_pag + ")");
+                pag_link.innerHTML = num_pag;
+                pag.appendChild(pag_link);
+                DOMpag.appendChild(pag);
+
+            }
+            if (num_pelis < 7) {
+                DOMitems.appendChild(miNodo);
+            }
+            else {
+                g.appendChild(miNodo);
+            }
+            console.log("items"+ num_pelis);
         }
         
     });
@@ -146,8 +180,17 @@ const peliculas = [
 
     // Pintamos el número de elementos seleccionados y el total
     document.getElementById("pelis_filtradas").innerHTML= num_pelis + " de " + id_peliculas;
+    // console.log(jsonString);
+    // console.log(peliculas);
 }
 renderizarProductos("all");
+
+function link_paginas(num) {
+    //TODO
+    // Utilizando la variable num podremos acceder a la id de la página para hacerla visible e invisivilizar al resto
+    // con el selector child o con un bucle contando los divs que hay dentro de Items.
+    console.log("El parámetro es el: " + num);
+}
 
 // FUnción para filtrar elementos
 function filter_check(){

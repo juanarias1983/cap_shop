@@ -21,17 +21,6 @@
     </div>
   </header>
     <section class="container section_1">
-        <!-- <div class="row justify-content-md-center">
-          <div class="col col-lg-2"> 
-            1 of 3
-          </div>
-          <div class="col-md-auto">
-            Variable width content
-          </div>
-          <div class="col col-lg-2">
-            3 of 3
-          </div>
-        </div> -->
         <div class="row">
           <div class="col-12">
             <h1>Bienvenido a tu videoclub</h1>
@@ -40,15 +29,11 @@
         </div>
       </section>
       <section class="container section_2">
-        <div class="row mb-0">
-          <div class="col">
-            <p id="pelis_filtradas">10 de 10</p>
-          </div>
-        </div>
+        
         <div class="row">
           <div class="col-8"">
-            <div class="container">
-              <div class="row justify-content-between" id="items"></div>
+            <div class="container" id="pagina">
+              <div class="row justify-content-between items" id="items"></div>
             </div>
           </div>
           <div class="col">
@@ -88,6 +73,20 @@
                 <button type="button" class="btn btn-primary mt-3" id="btn_modal" data-bs-toggle="modal" data-bs-target="#addModal">Añadir</button>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <nav>
+              <ul class="pagination pagination-sm">
+                <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">1</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="row mb-0">
+          <div class="col">
+            <p id="pelis_filtradas">10 de 10</p>
           </div>
         </div>
     </section>  
@@ -144,6 +143,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-<script src='main.js'></script>
+<script src='main_2.js'></script>
 
 </html>
