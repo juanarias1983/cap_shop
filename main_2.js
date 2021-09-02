@@ -1,7 +1,7 @@
 // Variables
 var filter = 0;
 let id_peliculas = 0;
-const DOMitems = document.querySelector('#items');
+const DOMitems = document.querySelector('#items1');
 const DOMpaginas = document.querySelector('#pagina');
 const DOMpag = document.querySelector('.pagination');
 let num_pag = 1;
@@ -156,6 +156,7 @@ var jsonString = [];
                 items_num += 1;
                 pag = document.createElement('li');
                 pag.setAttribute("class", "page-item");
+                pag.setAttribute("id", "num_pag"+num_pag);
                 pag_link = document.createElement('a');
                 pag_link.setAttribute("class", "page-link num_pag_"+num_pag);
                 pag_link.setAttribute("href", "#");
@@ -191,8 +192,21 @@ function link_paginas(num) {
     // con el selector child o con un bucle contando los divs que hay dentro de Items.
     console.log("El parámetro es el: " + num);
     ca = document.getElementById("pagina").childElementCount;
-    console.log(DOMpaginas.childElementCount);
-    console.log("prueba " + ca);
+    ca_num = document.getElementById("ca_num")
+
+    for (let i = 1; i < ca+1; i++) {
+        let pagina_num = document.querySelector('#items'+i);
+        let pagina_li = document.querySelector('#num_pag'+i);
+        pagina_li.classList.remove("disabled");
+        pagina_num.classList.add("d-none");
+
+        if ((pagina_num.className === 'd-none')||(num === i)) {
+            pagina_num.classList.remove("d-none");
+            pagina_li.classList.add("disabled");
+        }
+        console.log(pagina_num);
+    }
+   
 }
 
 // FUnción para filtrar elementos
